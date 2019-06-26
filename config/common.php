@@ -1,6 +1,7 @@
 <?php
 
-use yii\di\Reference;
+use Yiisoft\Factory\Factory;
+use Yiisoft\Factory\Definitions\Reference;
 
 return [
     'container' => function (\Psr\Container\ContainerInterface $container) {
@@ -8,11 +9,11 @@ return [
     },
 
     /// TODO to be removed, use FactoryInterface
-    yii\di\Factory::class => Reference::to('factory'),
+    Factory::class => Reference::to('factory'),
 
-    yii\di\FactoryInterface::class => Reference::to('factory'),
+    FactoryInterface::class => Reference::to('factory'),
     'factory' => [
-        '__class' => yii\di\Factory::class,
+        '__class' => Factory::class,
         '__construct()' => [
             'definitions' => [],
             'providers' => [],
